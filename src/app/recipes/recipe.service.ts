@@ -20,9 +20,7 @@ export class RecipeService {
     )
   ];
 
-  constructor(private shoppingListService: ShoppingListService) {
-
-  }
+  constructor(private shoppingListService: ShoppingListService) {}
 
   // recipeSelected = new EventEmitter<Recipe>();
 
@@ -31,10 +29,18 @@ export class RecipeService {
   }
 
   addIngredientsToShoppingList(ingredients: Ingredient[]) {
-    this.shoppingListService.addIngredients(ingredients)
+    this.shoppingListService.addIngredients(ingredients);
   }
 
-  getRecipe(id:number) {
-    return this.recipes[id]
+  getRecipe(id: number) {
+    return this.recipes[id];
+  }
+
+  addRecipe(recipe: Recipe) {
+    this.recipes.push(recipe);
+  }
+
+  updateRecipe(index: number, newRecipe: Recipe) {
+    this.recipes[index] = newRecipe;
   }
 }
